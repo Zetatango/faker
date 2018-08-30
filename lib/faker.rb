@@ -13,8 +13,9 @@ if I18n.respond_to?(:enforce_available_locales=)
   I18n.enforce_available_locales = true
 end
 
-required_yml = %i[name internet address company]
+# I18n.load_path += Dir[File.join(mydir, 'locales', '**', "*.yml")]
 
+required_yml = %i[name internet address company country]
 required_yml.each do |req|
   I18n.load_path += Dir[File.join(mydir, 'locales', 'en', "#{req}.yml")]
 end
