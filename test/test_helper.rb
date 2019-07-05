@@ -6,6 +6,7 @@ SimpleCov.start do
   add_filter ['.bundle', 'lib/extensions', 'test']
 end
 
+require 'minitest/autorun'
 require 'test/unit'
 require 'rubygems'
 require 'timecop'
@@ -19,7 +20,6 @@ locales_path = File.expand_path(File.dirname(__FILE__) + '../lib/locales')
 I18n.available_locales = Dir[locales_path + '/*'].map do |file|
   file.split('.').first
 end
-I18n.enforce_available_locales = true
 
 # deterministically_verify executes the test provided in the block successive
 #   times with the same deterministic_random seed.
